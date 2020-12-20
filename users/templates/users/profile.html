@@ -4,26 +4,46 @@
   <div class="container">
   <div class="content-section">
     <div class="media">
-      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+      <img class="rounded-circle" 
+        style="height: 200px;
+        width: 175px;
+        margin-right: 20px;
+        margin-bottom: 16px;" 
+        src="{{ user.profile.image.url }}">
+
       <div class="media-body">
-        <h2 class="account-heading">{{ user.username }}</h2>
-        <p class="text-secondary">{{ user.email }}</p>
-        <p class="text-secondary">{{ user.roll_number }}</p>
-        <p class="text-secondary">{{ user.room_number }}</p>
-        <p class="text-secondary">{{ user.interests }}</p>
+        <h2 style="font-size: 2.5rem; font-family: Lucida Handwriting; font-weight: bolder; text-shadow: 2px 2px 4px rgb(105, 193, 223); margin-left: 30px;">{{ user.username }}</h2>
+        <div class="container">
+          <div class="col">
+            <div class="row" style="margin: 3px; font-family: Lucida Handwriting;">
+              <h5 class="text-secondary"><b>Email_ID : </b>{{ user.email }}</h5>
+            </div>
+            <div class="row" style="margin: 3px; font-family: Lucida Handwriting;">
+              <h5 class="text-secondary"><b>Roll_no</b> : {{ user.profile.roll_no }}</h5>
+            </div>
+            <div class="row" style="margin: 3px; font-family: Lucida Handwriting;">
+              <h5 class="text-secondary"><b>Room_no</b> : {{ user.profile.room_no }}</h5>
+             </div>
+            <div class="row" style="margin: 3px; font-family: Lucida Handwriting;">
+               <h5 class="text-secondary"><b>Interests</b> : {{ user.profile.interests }}</h5>
+            </div>
       </div>
     </div>
-  </div>
-  <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Profile Info</legend>
-        {{ u_form|crispy }}
-        {{ p_form|crispy }}
-    </fieldset>
-    <div class="form-group">
-        <button class="btn btn-outline-info" type="submit">Update</button>
     </div>
-</form>
+  </div>
 </div>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+  <a style="background-color: green;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            font-weight: bolder;
+            border-radius: 4px;" 
+  href="{% url 'profile_update' %}">Edit Profile</a>
+</div>
+</div>
+
   {% endblock content %}
