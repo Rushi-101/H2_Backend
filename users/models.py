@@ -8,6 +8,7 @@ class Profile(models.Model):
     roll_no = models.CharField(default = 'None',max_length = 9)
     room_no = models.IntegerField(default = '0',)
     interests = models.CharField(default = 'None', max_length = 150)
+    gc_participation = models.CharField(default = 'None', max_length = 1000)
 
     def __str__(self):
         return f'{self.user.username} Profile'

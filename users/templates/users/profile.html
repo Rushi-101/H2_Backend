@@ -1,49 +1,91 @@
 {% extends "hostel2/base.html" %}
 {% load crispy_forms_tags %}
   {% block content %}
-  <div class="container">
-  <div class="content-section">
-    <div class="media">
-      <img class="rounded-circle" 
-        style="height: 200px;
-        width: 175px;
-        margin-right: 20px;
-        margin-bottom: 16px;" 
-        src="{{ user.profile.image.url }}">
+  
+<div class="container">
+<div class="center">
+  <div style="background-repeat: no-repeat;
+  background-position: -400px 0, 0 0;
 
-      <div class="media-body">
-        <h2 style="font-size: 2.5rem; font-family: Lucida Handwriting; font-weight: bolder; text-shadow: 2px 2px 4px rgb(105, 193, 223); margin-left: 30px;">{{ user.username }}</h2>
-        <div class="container">
-          <div class="col">
-            <div class="row" style="margin: 3px; font-family: Lucida Handwriting;">
-              <h5 class="text-secondary"><b>Email_ID : </b>{{ user.email }}</h5>
-            </div>
-            <div class="row" style="margin: 3px; font-family: Lucida Handwriting;">
-              <h5 class="text-secondary"><b>Roll_no</b> : {{ user.profile.roll_no }}</h5>
-            </div>
-            <div class="row" style="margin: 3px; font-family: Lucida Handwriting;">
-              <h5 class="text-secondary"><b>Room_no</b> : {{ user.profile.room_no }}</h5>
-             </div>
-            <div class="row" style="margin: 3px; font-family: Lucida Handwriting;">
-               <h5 class="text-secondary"><b>Interests</b> : {{ user.profile.interests }}</h5>
-            </div>
-      </div>
-    </div>
+  background-image: -webkit-linear-gradient(
+    top left,
+    rgba(100, 100, 100, 0.2) 0%,
+    rgba(100, 100, 100, 0.2) 37%,
+    rgba(100, 100, 100, 0.8) 45%,
+    rgba(100, 100, 100, 0.0) 50%
+  );
+  background-image: -moz-linear-gradient(
+    0 0,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) 37%,
+    rgba(255, 255, 255, 0.8) 45%,
+    rgba(255, 255, 255, 0.0) 50%
+  );
+  background-image: -o-linear-gradient(
+    0 0,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) 37%,
+    rgba(255, 255, 255, 0.8) 45%,
+    rgba(255, 255, 255, 0.0) 50%
+  );
+  background-image: linear-gradient(
+    0 0,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) 37%,
+    rgba(255, 255, 255, 0.8) 45%,
+    rgba(255, 255, 255, 0.0) 50%
+  );
+
+  -moz-background-size: 250% 250%, 100% 100%;
+       background-size: 250% 250%, 100% 100%;
+
+  -webkit-transition: background-position 0s ease;
+     -moz-transition: background-position 0s ease;
+       -o-transition: background-position 0s ease;
+          transition: background-position 0s ease;
+          
+
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        border: 3px solid darkorchid;
+        padding: 10px;
+        background-image: linear-gradient(to left,indigo,mediumorchid,indigo);
+        color: pink;
+        
+        :hover {
+            background-position: 0 0, 0 0;
+            -webkit-transition-duration : 0.5s;
+            -moz-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+            border: 3px solid moccasin;
+            box-shadow: 20px 20px 12px 0 rgba(0, 0, 0, 0.5);
+        }">
+    <img style="height: 200px;
+                width: 200px;
+                float: left;
+                border-radius: 500px;
+                border: 3px solid pink;
+                margin: 20px;
+                
+                :hover {
+                  border: 3px solid moccasin;
+                }" 
+        src="{{ user.profile.image.url }}">
+    <div class="container">
+      <h2 style="font-weight: bolder; font-family: Lucida Calligraphy; font-size: 40px;">{{ user.username }}</h2>
+      <p style="font-size:20px; margin-bottom:5px;"><b>Email: &nbsp; </b>{{ user.email }}</p>
+      <p style="font-size:20px; margin-bottom:5px;"><b>Roll No: &nbsp; </b>{{ user.profile.roll_no }}</p>
+      <p style="font-size:20px; margin-bottom:5px;"><b>Room No: &nbsp; </b>{{ user.profile.room_no }}</p>
+      <p style="font-size:20px; margin-bottom:5px;"><b>Interests: &nbsp; </b>{{ user.profile.interests }}</p>
+      <p style="font-size:20px; margin-bottom:5px;"><b>GC Participation: &nbsp; </b>{{ user.profile.gc_participation }}</p>
     </div>
   </div>
 </div>
-  <br>
-  <br>
-  <br>
-  <div class="container">
-  <a style="background-color: green;
-            color: white;
-            padding: 14px 25px;
-            text-align: center;
-            font-weight: bolder;
-            border-radius: 4px;" 
-  href="{% url 'profile_update' %}">Edit Profile</a>
 </div>
 </div>
+<br>
 
+<div class="container">
+  <a class="btn btn-outline-success" href="{% url 'profile_update' %}">Edit Profile</a>
+</div>
   {% endblock content %}
