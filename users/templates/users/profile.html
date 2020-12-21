@@ -1,6 +1,6 @@
 {% extends "hostel2/base.html" %}
 {% load crispy_forms_tags %}
-  {% block content %}
+{% block content %}
   
 <div class="container">
 <div class="center">
@@ -72,7 +72,7 @@
                 }" 
         src="{{ user.profile.image.url }}">
     <div class="container">
-      <h2 style="font-weight: bolder; font-family: Lucida Calligraphy; font-size: 40px;">{{ user.username }}</h2>
+      <h2 style="font-weight: bolder; font-family: Lucida Calligraphy; font-size: 40px; color:pink;">{{ user.username }}</h2>
       <p style="font-size:20px; margin-bottom:5px;"><b>Email: &nbsp; </b>{{ user.email }}</p>
       <p style="font-size:20px; margin-bottom:5px;"><b>Roll No: &nbsp; </b>{{ user.profile.roll_no }}</p>
       <p style="font-size:20px; margin-bottom:5px;"><b>Room No: &nbsp; </b>{{ user.profile.room_no }}</p>
@@ -88,4 +88,27 @@
 <div class="container">
   <a class="btn btn-outline-success" href="{% url 'profile_update' %}">Edit Profile</a>
 </div>
-  {% endblock content %}
+
+<br>
+<br>
+<br>
+<section class="profile_container">
+  <div class="profile_img_section">
+    <img class="profile_img-LG" src="{{ user.profile.image.url }}" />
+  </div>
+
+  <div class="profile_desc_section">
+    <h2>Seo Dal-Mi</h2>
+    <h3>CEO</h3>
+    <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+    <div class="interests">
+      <span class="interests_item">Technology</span>
+      <span class="interests_item">Management</span>
+      <span class="interests_item">Leadership</span>
+    </div>
+  </div>
+
+</section>
+
+ {% endblock %}
