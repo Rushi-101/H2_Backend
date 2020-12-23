@@ -7,7 +7,7 @@ class Profile(models.Model):
     image = models.ImageField(default = 'default.jpg', upload_to = 'profile_pics')
     roll_no = models.CharField(default = '',max_length = 9)
     room_no = models.IntegerField(default = '0',)
-    interests = models.CharField(default = '', max_length = 150)
+    interests = models.CharField(default = '', max_length = 500)
     gc_participation = models.CharField(default = 'None', max_length = 1000)
 
     def __str__(self):

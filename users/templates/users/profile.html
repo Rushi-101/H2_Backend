@@ -1,114 +1,39 @@
 {% extends "hostel2/base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
-  
-<div class="container">
-<div class="center">
-  <div style="background-repeat: no-repeat;
-  background-position: -400px 0, 0 0;
 
-  background-image: -webkit-linear-gradient(
-    top left,
-    rgba(100, 100, 100, 0.2) 0%,
-    rgba(100, 100, 100, 0.2) 37%,
-    rgba(100, 100, 100, 0.8) 45%,
-    rgba(100, 100, 100, 0.0) 50%
-  );
-  background-image: -moz-linear-gradient(
-    0 0,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.2) 37%,
-    rgba(255, 255, 255, 0.8) 45%,
-    rgba(255, 255, 255, 0.0) 50%
-  );
-  background-image: -o-linear-gradient(
-    0 0,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.2) 37%,
-    rgba(255, 255, 255, 0.8) 45%,
-    rgba(255, 255, 255, 0.0) 50%
-  );
-  background-image: linear-gradient(
-    0 0,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.2) 37%,
-    rgba(255, 255, 255, 0.8) 45%,
-    rgba(255, 255, 255, 0.0) 50%
-  );
+  <link rel="stylesheet" type="text/css" href="{% static 'users/main.css' %}">
 
-  -moz-background-size: 250% 250%, 100% 100%;
-       background-size: 250% 250%, 100% 100%;
 
-  -webkit-transition: background-position 0s ease;
-     -moz-transition: background-position 0s ease;
-       -o-transition: background-position 0s ease;
-          transition: background-position 0s ease;
-          
-
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        border-radius: 5px;
-        border: 3px solid darkorchid;
-        padding: 10px;
-        background-image: linear-gradient(to left,indigo,mediumorchid,indigo);
-        color: pink;
-        
-        :hover {
-            background-position: 0 0, 0 0;
-            -webkit-transition-duration : 0.5s;
-            -moz-transition-duration: 0.5s;
-            transition-duration: 0.5s;
-            border: 3px solid moccasin;
-            box-shadow: 20px 20px 12px 0 rgba(0, 0, 0, 0.5);
-        }">
-    <img style="height: 200px;
-                width: 200px;
-                float: left;
-                border-radius: 500px;
-                border: 3px solid pink;
-                margin: 20px;
-                
-                :hover {
-                  border: 3px solid moccasin;
-                }" 
-        src="{{ user.profile.image.url }}">
-    <div class="container">
-      <h2 style="font-weight: bolder; font-family: Lucida Calligraphy; font-size: 40px; color:pink;">{{ user.username }}</h2>
-      <p style="font-size:20px; margin-bottom:5px;"><b>Email: &nbsp; </b>{{ user.email }}</p>
-      <p style="font-size:20px; margin-bottom:5px;"><b>Roll No: &nbsp; </b>{{ user.profile.roll_no }}</p>
-      <p style="font-size:20px; margin-bottom:5px;"><b>Room No: &nbsp; </b>{{ user.profile.room_no }}</p>
-      <p style="font-size:20px; margin-bottom:5px;"><b>Interests: &nbsp; </b>{{ user.profile.interests }}</p>
-      <p style="font-size:20px; margin-bottom:5px;"><b>GC Participation: &nbsp; </b>{{ user.profile.gc_participation }}</p>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-<br>
-
-<div class="container">
-  <a class="btn btn-outline-success" href="{% url 'profile_update' %}">Edit Profile</a>
-</div>
-
-<br>
-<br>
-<br>
-<section class="profile_container">
+<div class="container"> <section class="profile_container">
   <div class="profile_img_section">
     <img class="profile_img-LG" src="{{ user.profile.image.url }}" />
   </div>
 
   <div class="profile_desc_section">
-    <h2>Seo Dal-Mi</h2>
-    <h3>CEO</h3>
-    <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <h2 style="font-weight: bolder; font-family: Lucida Calligraphy; font-size: 50px; color: rgb(241, 226, 8);">{{ user.username }}</h2>
+    <h3 style="font-weight: bolder; color: aqua"><b>Email: &nbsp; </b>{{ user.email }}</h3>
+    <h3 style="font-weight: bolder; color: aqua;"><b>Roll No: &nbsp; </b>{{ user.profile.roll_no }}</h3>
+    <h3 style="font-weight: bolder; color: aqua;"><b>Room No: &nbsp; </b>{{ user.profile.room_no }}</h3>
 
-    <div class="interests">
-      <span class="interests_item">Technology</span>
-      <span class="interests_item">Management</span>
-      <span class="interests_item">Leadership</span>
+    <p class="description" style="background-color: aqua;
+                                  border-radius: 5px; padding: 5px 15px;
+                                  margin-right: 7.5px;
+                                  margin-bottom: 10px;
+                                  color: rgb(2, 83, 83);">
+                                  {{ user.profile.interests }}</p>
+    
+    <h3 style="font-weight: bolder; color: aqua;"><b>GC Participation: &nbsp; </b>{{ user.profile.gc_participation }}</h3>
     </div>
-  </div>
+
 
 </section>
+<hr>
+<div class="container">
+  <a class="btn btn-outline-success" href="{% url 'profile_update' %}">Edit Profile</a>
+</div>
+</div>
+ 
 
  {% endblock %}
